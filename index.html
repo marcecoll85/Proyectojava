@@ -12,6 +12,51 @@
     <h1>PRIMER ENTREGABLE JAVA SCRIP </h1>
         <P> Lo que hace el algoritmo primero preguntar nombre de usuario, luego es elegir entre los productos de la lista que estan identificado con un numero <br> Una vez que se ingresa la elección permite mostrar cuantas veces se eligio y si se quiere seguir agregando productos <br> Por ultimo detalle cantidad de veces que fue elejido el producto</P>
     
-    
+        <h1>Bienvenido a la Tienda Online</h1>
+        <p id="nombre"></p>
+        <div>
+          <button onclick="agregarProducto(1)">Socks</button>
+          <button onclick="agregarProducto(2)">Neceser</button>
+          <button onclick="agregarProducto(3)">Bolso</button>
+          <button onclick="agregarProducto(4)">Medias largas</button>
+          <button onclick="agregarProducto(5)">Medias sin pie</button>
+          <button onclick="agregarProducto(6)">Matero</button>
+        </div>
+        <button onclick="finalizar()">Finalizar</button>
+        
+        <script>
+          let nom = prompt("Hola, bienvenido a la tienda. ¿Cuál es tu nombre?");
+          let productos = [
+            { nombre: "Socks", cantidad: 0 },
+            { nombre: "Neceser", cantidad: 0 },
+            { nombre: "Bolso", cantidad: 0 },
+            { nombre: "Medias largas", cantidad: 0 },
+            { nombre: "Medias sin pie", cantidad: 0 },
+            { nombre: "Matero", cantidad: 0 }
+          ];
+      
+          document.getElementById('nombre').textContent = 'Hola ' + nom;
+      
+          function agregarProducto(indice) {
+            let producto = productos[indice - 1];
+      
+            if (producto) {
+              producto.cantidad++;
+              alert("Producto agregado: " + producto.nombre);
+            } else {
+              alert("Esa opción no existe");
+            }
+          }
+      
+          function finalizar() {
+            let listaProductos = "";
+            for (let i = 0; i < productos.length; i++) {
+              listaProductos += productos[i].nombre + ": " + productos[i].cantidad + "<br>";
+            }
+      
+            document.body.innerHTML += "<h2>Resumen de productos:</h2>";
+            document.body.innerHTML += listaProductos;
+          }
+        </script>
 </body>
 </html>
